@@ -26,7 +26,7 @@ jobs:
 
       - name: Extract FOXVPN source
         run: |
-          unzip -q FOXVPN-Android-Source.zip -d /tmp/foxvpn
+          unzip -q FOXVPN-START.zip -d /tmp/foxvpn
           cp -R /tmp/foxvpn/FOXVPN-Android/. .
 
       - name: Build APK
@@ -36,4 +36,6 @@ jobs:
         with:
           name: FOXVPN-APK
           path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
           
